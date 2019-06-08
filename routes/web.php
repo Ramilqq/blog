@@ -15,6 +15,7 @@
 Route::middleware([])->group(function () {
 	Route::get ('/', ['uses'=>'IndexController@execute', 'as'=>'index']);
 	Route::get('/artison/{id}', ['uses'=>'ArtisonController@execute', 'as'=>'artison']);
+	Route::get('/news', ['uses'=>'NewsController@execute', 'as'=>'news']);
 	Route::get('/contact', ['uses'=>'ContactController@execute', 'as'=>'contact']);
 	Auth::routes(['verify' => true]);
 });

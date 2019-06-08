@@ -15,7 +15,7 @@ class News extends Model
     }
 
     public function coments () {
-        return $this->hasMany('App\Coments', 'id');
+        return $this->hasMany('App\Coments', 'new_id');
     }
 
     public function user () {

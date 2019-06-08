@@ -16,7 +16,7 @@
 						<div style="margin-top: 2%;">
 							<div class="row">   
 								<div class="col-md-12" align="center">   
-								    <img src="/image/{{$data['image']}}" class="img-fluid"/>
+								    <img src="/image/{{$data['image']->max}}" class="img-fluid"/>
 								</div>
 							</div>
 							<div class="row">	
@@ -36,7 +36,8 @@
                                 <p>Автор: {{ $data['autor'] }}</p>
                             </div>
                             <div class="col-md-4">
-                                <p>Коментарии: </p>
+                                <p>{{ Lang::choice('lang.coments', $data['coments']) }}:
+                                {{ $data['coments'] ? $data['coments'] : 0 }} </p>
                             </div>
                             <div class="col-md-4">
                                 <p>Дата: {{ date("d m Y", strtotime($data['created_at']))}}</p>

@@ -3,12 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard Новости</div>
-
-                <div class="card-body">
-
+                <div class="card-body col-md-10">
                     @if(!$news)
                         <h2>Данный раздел находится на стадии разработки</h2>
                     @else
@@ -24,14 +22,15 @@
     								    <h5 class="card-title">{{ $item['name'] }}</h5>
     								    <p class="card-text">{{ $item['desc'] }}</p>
                                         <div class="row">
-                                            <div class="col-md-3" style="margin: 5px;">
-                                                <a href="{{route('artison',['id'=>$item['id']])}}" class="btn btn-primary" style="margin-right: 5%;">Читать</a>
+                                            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 5px;">
+                                                <a href="{{route('artison',['id'=>$item['id']])}}" class="btn btn-primary">Читать</a>
                                             </div>
-                                            <div class="col-md-3" style="margin: 5px;">
+                                            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 5px;">
                                                 {{ $item->created_at->format('d m Y') }}
                                             </div>                                        
-                                            <div class="col-md-3" style="margin: 5px;">
+                                            <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 5px;">
                                                 <p>Автор:{{ $item->user['name']}}</p>
+                                                <p>{{ count($item->coments) ? count($item->coments) : 0 }} {{ Lang::choice('lang.coments', count($item->coments)) }}</p>
                                             </div>
                                         </div>
 								    </div>
@@ -40,32 +39,14 @@
 						</div>
 	                 	@endforeach	   
                      @endif	
-                    <a href="{{ route('news') }}" type="button" class="btn btn-success btn-sm btn-block" style="margin-top: 5%;">Все новости</a> 
                 </div>
+
+                {{ $news->links() }}
+
             </div>
         </div>
-    </div>
-    
-    
-    
-    
-    <div class="row justify-content-center" style="margin-top: 5%;">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">Dashboard Новости</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    INDEX.PHP
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 

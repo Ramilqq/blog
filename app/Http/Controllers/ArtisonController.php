@@ -20,17 +20,19 @@ class ArtisonController extends Controller
 			$data = [
 					'name' => $news->name,
 					'text' => $news->text,
-					'image' => $news->image,
+					'image' => json_decode($news->image),
 					'created_at' => $news->created_at,
 					'url' => $last_page,
-					//'autor' => $news->user->name,
+					'autor' => $news->user->name,
+					'coments' => count($news->coments),
 					];
 
-				dd($news->user->name);
+				//dd($data);
+				//dd($news->user->name);
 				//foreach ($news as $item):
 		    	//	dd($item);
 		    	//endforeach;
-		    	die();
+		    	//die();
 
 
 
