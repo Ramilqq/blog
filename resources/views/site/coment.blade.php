@@ -1,5 +1,5 @@
 @foreach($items as $item)
-    <div class="media-block" id="li-comment-{{$item->id}}">
+    <div class="media-block"  id="li-comment-{{$item->id}}">
         <a class="media-left" href="#">
             @php
             $hash = md5($item->users->email)
@@ -23,7 +23,7 @@
             <hr>
             <!-- Комментарий -->
             @if ( isset($com[$item->id]) )
-            <div>
+            <div class="child">
                 @include ('site.coment', ['items'=>$com[$item->id]])
             </div>
             @endif

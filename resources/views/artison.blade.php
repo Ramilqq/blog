@@ -79,12 +79,12 @@
             @if (!Auth::check())
             <div class="panel" id="respond">
                 <h3 id="reply-title">Leave a <span>Reply</span> <small><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></small></h3>
-                <form action="sendmail.PHP" method="post" id="commentform"> 
+                <form action="{{route('coment')}}" method="post" id="commentform"> 
                     <div class="panel-body">
-                        <textarea class="form-control" rows="2" placeholder="Добавьте Ваш комментарий"></textarea>
+                        <textarea id="comment" class="form-control" rows="2" placeholder="Добавьте Ваш комментарий" name="text"></textarea>
                         <div class="mar-top clearfix">
-                            <input type="hidden" id="coment_post_ID" name="coment_post_ID" value="{{$data['id']}}">
-                            <input type="hidden" id="coment_parent" name="coment_parent" value="">
+                            <input type="hidden" id="comment_post_ID" name="coment_post_ID" value="{{$data['id']}}">
+                            <input type="hidden" id="comment_parent" name="coment_parent" value="">
                             <button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Добавить</button>
                             <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#"></a>
                             <a class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#"></a>
@@ -97,7 +97,7 @@
             <p>Для добавления коментарий нужно авторизоваться</p>
             @endif
             @if (count($data['coments']) > 0)
-                <div class="panel">
+                <div class="panell">
                     <div class="panel-body">
                      <!--===================================================-->
                      @php
@@ -118,30 +118,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

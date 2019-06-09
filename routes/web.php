@@ -23,6 +23,7 @@ Route::middleware([])->group(function () {
 Route::middleware('auth', 'verified')->group(function () {
 	Route::get('/home', ['uses'=>'HomeController@index', 'us'=>'home']);
 	Route::post('/contact', ['uses'=>'ContactController@execute', 'as'=>'contact']);
+	Route::post('/comm', ['uses'=>'ComentController@execute', 'as'=>'coment']);
 });
 
 Route::middleware('auth', 'verified', 'admin')->group(function () {

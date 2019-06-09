@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/comment-reply.js') }}" defer></script> 
+    <script src="{{ asset('js/jquery-3.4.1.min.js') }}" defer></script> 
+    <script src="{{ asset('js/myjs.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -85,8 +89,5 @@
 		<p>Не стесняйтесь <a href="{{route('contact')}}">спрашивайте</a></p>
 	</div>
 
-
-<script src="{{ asset('js/comment-reply.js') }}"></script> 
-<script src="{{ asset('js/myjs.js') }}"></script> 
 </body>
 </html>
