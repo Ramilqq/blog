@@ -12,6 +12,7 @@ class NewsController extends Controller
     public function execute () {
     	if(view()->exists('news')):
     		$news = News::paginate(config('settings.paginate'));
+    		$news->load('user', 'coments');
 
     		//dump($news);
 

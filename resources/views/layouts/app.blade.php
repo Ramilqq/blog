@@ -84,5 +84,9 @@
     <div class="footer" align="center" id="footer">
 		<p>Не стесняйтесь <a href="{{route('contact')}}">спрашивайте</a></p>
 	</div>
+
+
+<script src="{{ asset('js/comment-reply.js') }}"></script> 
+<script src="{{ asset('js/myjs.js') }}"></script> 
 </body>
 </html>

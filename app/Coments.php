@@ -8,8 +8,8 @@ class Coments extends Model
 {
     //
 
-    public function users () {
-        return $this->belongsTo('App\User');
+    public function users () {               
+        return $this->belongsTo('App\User' , 'user_id', 'id');
     }
 
     public function news () {

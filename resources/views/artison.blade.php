@@ -36,8 +36,8 @@
                                 <p>Автор: {{ $data['autor'] }}</p>
                             </div>
                             <div class="col-md-4">
-                                <p>{{ Lang::choice('lang.coments', $data['coments']) }}:
-                                {{ $data['coments'] ? $data['coments'] : 0 }} </p>
+                                <p>{{ Lang::choice('lang.coments', count($data['coments'])) }}:
+                                {{ count($data['coments']) }} </p>
                             </div>
                             <div class="col-md-4">
                                 <p>Дата: {{ date("d m Y", strtotime($data['created_at']))}}</p>
@@ -70,6 +70,107 @@
         </div>
     </div>
 </div>
+
+
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @if (!Auth::check())
+            <div class="panel" id="respond">
+                <h3 id="reply-title">Leave a <span>Reply</span> <small><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></small></h3>
+                <form action="sendmail.PHP" method="post" id="commentform"> 
+                    <div class="panel-body">
+                        <textarea class="form-control" rows="2" placeholder="Добавьте Ваш комментарий"></textarea>
+                        <div class="mar-top clearfix">
+                            <input type="hidden" id="coment_post_ID" name="coment_post_ID" value="{{$data['id']}}">
+                            <input type="hidden" id="coment_parent" name="coment_parent" value="">
+                            <button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Добавить</button>
+                            <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#"></a>
+                            <a class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#"></a>
+                            <a class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#"></a>
+                        </div>
+                    </div>
+                </form> 
+            </div>
+            @else
+            <p>Для добавления коментарий нужно авторизоваться</p>
+            @endif
+            @if (count($data['coments']) > 0)
+                <div class="panel">
+                    <div class="panel-body">
+                     <!--===================================================-->
+                     @php
+                        $com = $data['com']
+                     @endphp
+                    @foreach($com as $key => $value)
+
+                        @if ($key !== 0)
+                            @continue
+                        @endif
+
+                        @include('site.coment', ['items'=>$value])
+
+                    @endforeach
+                    </div>
+                </div>
+            @endif
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</section>
+
 
 
 

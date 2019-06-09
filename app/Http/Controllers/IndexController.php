@@ -15,6 +15,7 @@ class IndexController extends Controller
 		    	*подключение к БД
 		    	*/
 		    	$news = News::all();
+		    	$news->load('user', 'coments');
 
 		    	foreach ($news as $item):
 		    		$item['image'] = json_decode($item['image']);

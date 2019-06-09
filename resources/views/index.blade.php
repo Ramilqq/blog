@@ -33,6 +33,9 @@
                                             <div class="col-md-3" style="margin: 5px;">
                                                 <p>Автор:{{ $item->user['name']}}</p>
                                             </div>
+                                            <div class="col-md-3" style="margin: 5px;">
+                                                <p>{{ count($item->coments) ? count($item->coments) : 0 }} {{ Lang::choice('lang.coments', count($item->coments)) }}</p>
+                                            </div>
                                         </div>
 								    </div>
 								</div>
